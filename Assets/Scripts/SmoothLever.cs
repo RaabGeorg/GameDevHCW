@@ -62,16 +62,16 @@ public class SmoothLever : MonoBehaviour
         this.StartCoroutine(this.InterpolateLeverCoroutine());
     }
 
-    void onTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player") playerEntered = true;
     }
 
-    void onTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player") playerEntered = false;
     }
-    void FixedUpdate()
+    void Update()
     {
         if (!playerEntered) return; 
         if (this.interactAction.WasPressedThisFrame() && !this.interpolating)
